@@ -4,6 +4,31 @@
 
 {% block body %}
 
-<h1>Articles</h1>
+{% if atricles %}
+<table class="table table-striped">
+    <tr>
+        <thead>
+            <th>Atricle Title</th>
+            <th>Actions</th>
+        </thead>
+    </tr>
+    <tbody>
+{% for atricle in atricles %}
+
+          <tr>
+            <td>{{ atricle }}</td>
+            <td> <a href="/article/1" class="btn btn-dark">Show</a></td>
+
+          </tr>  
+
+        {% endfor %}
+    </tbody>
+
+</table>
+
+ {%  else  %}
+
+<p> No articles yet! </p>
+ {% endif %}
 
 {% endblock %}
