@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ArticleController extends Controller{
 
   /** 
-   * @Route("/home")
+   * @Route("/", name="article_list")
    * @Method({"GET"})
    */
  
@@ -23,6 +23,21 @@ class ArticleController extends Controller{
             'atricles' => $articles
         ]);
     }
+
+  /** 
+   * @Route("/article/{id}", name="article_show")
+   * @Method({"GET"})
+   */
+
+   public function show($id){
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+                return $this->render('articles/show.html.twig', [
+            'article' => $article
+        ]);
+
+   }
+
+
       /** 
    * @Route("/article/save")
    */
