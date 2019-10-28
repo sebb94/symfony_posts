@@ -1,7 +1,7 @@
 <?php 
 
 namespace App\Controller;
-
+use App\Entity\Article;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method; 
@@ -15,15 +15,29 @@ class ArticleController extends Controller{
    * @Method({"GET"})
    */
  
-
     public function index(){
 
-         $articles = ['Art 1', 'Art 2'];
+         $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
             return $this->render('articles/index.html.twig', [
             'controller_name' => 'ArticleController',
             'atricles' => $articles
         ]);
     }
+      /** 
+   * @Route("/article/save")
+   */
+ 
+    // public function save(){
+
+    //    $entityManager = $this->getDoctrine()->getManager();
+    //    $article = new Article();
+    //    $article->setTitle('Article 2');
+    //    $article->setBody('Body for article 2');
+    //    $entityManager->persist($article);
+    //    $entityManager->flush();
+    //    return new Response("Save atricle with id" . $article->getId());
+
+    // }
 
 
 }
