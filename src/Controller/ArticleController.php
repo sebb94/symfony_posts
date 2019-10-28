@@ -19,7 +19,6 @@ class ArticleController extends Controller{
     public function index(){
 
          $articles = ['Art 1', 'Art 2'];
-
             return $this->render('articles/index.html.twig', [
             'controller_name' => 'ArticleController',
             'atricles' => $articles
