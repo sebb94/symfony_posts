@@ -23,7 +23,7 @@ class ArticleController extends Controller{
          $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
             return $this->render('articles/index.html.twig', [
             'controller_name' => 'ArticleController',
-            'atricles' => $articles
+            'articles' => $articles
         ]);
     }
 

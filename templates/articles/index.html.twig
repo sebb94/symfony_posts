@@ -1,24 +1,25 @@
 {% extends 'base.html.twig' %}  
 
-{% block title %} Symposts Atricles {% endblock %}
+{% block title %} Symposts articles {% endblock %}
 
 {% block body %}
 
-{% if atricles %}
+{% if articles %}
 <table class="table table-striped">
     <tr>
         <thead>
-            <th>Atricle Title</th>
+            <th>Article Title</th>
             <th>Actions</th>
         </thead>
     </tr>
     <tbody>
-{% for atricle in atricles %}
+{% for article in articles %}
 
           <tr>
-            <td>{{ atricle.title }}</td>
+            <td>{{ article.title }}</td>
 <td>
-    <a href="/article/{{ atricle.id }}" class="btn btn-dark">Show</a>
+    <a href="/article/{{ article.id }}" class="btn btn-dark">Show</a>
+    <a href="#" class="btn btn-danger delete-article" data-id="{{ article.id }}">Delete</a>
 </td>
 
           </tr>  
